@@ -45,10 +45,22 @@ bun add -d @types/bun
 3. bun init
     define or accept default:
     * package name (bun-first)
-    * entry poing (index.tx)
-4. start -> bun run index.tx
+    * entry poing (index.ts)
+4. start -> bun run index.ts
 
 # Create a web server
+In index.ts:
+```typescript
+const server = Bun.serve({
+    port: 3000,
+    fetch(req){
+        return new Response("Hello from my bun server!!");
+    }
+})
+
+console.log(`Listening on PORT http://localhost:${server.port}`);
+console.log("Hello via Bun!");
+```
 
 
 
