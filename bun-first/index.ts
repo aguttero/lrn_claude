@@ -2,11 +2,18 @@ interface Todo {
     id: number;
     text: string;
     completed: boolean;
+    dueDate: string | null;
+}
+
+function getTomorrowDate(): string {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return tomorrow.toISOString().split('T')[0];
 }
 
 let todos: Todo[] = [
-    { id: 1, text: "Learn Bun", completed: true },
-    { id: 2, text: "Build a todo app", completed: false }
+    { id: 1, text: "Learn Bun", completed: true, dueDate: null },
+    { id: 2, text: "Build a todo app", completed: false, dueDate: getTomorrowDate() }
 ];
 let nextId = 3;
 
@@ -21,7 +28,12 @@ const server = Bun.serve({
 
         if (url.pathname === "/todos" && req.method === "POST") {
             const body = await req.json();
-            const todo: Todo = { id: nextId++, text: body.text, completed: false };
+            const todo: Todo = { 
+                id: nextId++, 
+                text: body.text, 
+                completed: false,
+                dueDate: body.dueDate || getTomorrowDate()
+            };
             todos.push(todo);
             return Response.json(todo, { status: 201 });
         }
@@ -33,6 +45,7 @@ const server = Bun.serve({
             const body = await req.json();
             if (body.completed !== undefined) todo.completed = body.completed;
             if (body.text !== undefined) todo.text = body.text;
+            if (body.dueDate !== undefined) todo.dueDate = body.dueDate;
             return Response.json(todo);
         }
 

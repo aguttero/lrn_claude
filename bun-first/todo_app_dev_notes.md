@@ -62,19 +62,25 @@ interface Todo {
     id: number;          // Unique identifier (auto-incremented)
     text: string;        // Todo description
     completed: boolean;  // Completion status
+    dueDate: string | null;  // Due date (YYYY-MM-DD), defaults to tomorrow
 }
 ```
 
 **Storage**: In-memory array (`let todos: Todo[]`). Data resets on server restart.
+
+**Helper Functions**:
+- `getTomorrowDate()`: Returns tomorrow's date as YYYY-MM-DD string
 
 ## API Endpoints
 
 | Method | Path | Request Body | Response | Description |
 |--------|------|--------------|----------|-------------|
 | GET | `/todos` | - | `Todo[]` | Get all todos |
-| POST | `/todos` | `{"text": "string"}` | `Todo` | Create new todo |
-| PATCH | `/todos/:id` | `{"completed": boolean}` | `Todo` | Update todo |
+| POST | `/todos` | `{"text": "string", "dueDate": "YYYY-MM-DD"}` | `Todo` | Create new todo |
+| PATCH | `/todos/:id` | `{"completed": boolean, "dueDate": "YYYY-MM-DD"}` | `Todo` | Update todo |
 | DELETE | `/todos/:id` | - | `204` | Delete todo |
+
+**Note**: `dueDate` is optional on POST. If omitted, defaults to tomorrow's date.
 
 ### Example Usage
 
@@ -82,15 +88,25 @@ interface Todo {
 # Get all todos
 curl http://localhost:3001/todos
 
-# Add todo
+# Add todo with due date
 curl -X POST http://localhost:3001/todos \
   -H "Content-Type: application/json" \
-  -d '{"text": "Buy milk"}'
+  -d '{"text": "Buy milk", "dueDate": "2026-04-20"}'
+
+# Add todo (due date defaults to tomorrow)
+curl -X POST http://localhost:3001/todos \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Call mom"}'
 
 # Toggle complete
 curl -X PATCH http://localhost:3001/todos/1 \
   -H "Content-Type: application/json" \
   -d '{"completed": true}'
+
+# Update due date
+curl -X PATCH http://localhost:3001/todos/1 \
+  -H "Content-Type: application/json" \
+  -d '{"dueDate": "2026-04-25"}'
 
 # Delete todo
 curl -X DELETE http://localhost:3001/todos/1
@@ -111,25 +127,36 @@ Main HTTP server entry point. Handles all requests via the `fetch` handler.
 
 - **GET `/todos`**: Returns JSON of all todos
 - **POST `/todos`**: Parses JSON body, creates new `Todo` with auto-incremented ID
+  - Uses `body.dueDate || getTomorrowDate()` for default due date
 - **PATCH `/todos/:id`**: Parses ID from path, finds todo, updates fields from body
+  - Supports `completed`, `text`, and `dueDate` updates
 - **DELETE `/todos/:id`**: Parses ID, removes from array
 - **GET `/` or `/index.html`**: Serves `Bun.file("public/index.html")`
 
 ## Frontend Code
 
 The `public/index.html` contains:
-- HTML form for adding todos
-- List display with checkboxes
+- HTML form with text input + date picker
+- List display with checkboxes, due dates, and delete buttons
 - Vanilla JavaScript for API communication
+- Overdue date styling (red text for past dates)
 
 ### Functions
 
 | Function | Description |
 |----------|-------------|
+| `getTomorrowDate()` | Returns tomorrow's date string |
+| `isOverdue(dueDate)` | Checks if date is in the past |
+| `formatDate(date)` | Formats YYYY-MM-DD for display |
 | `loadTodos()` | Fetches and renders all todos |
-| `addTodo()` | POSTs new todo to server |
+| `addTodo()` | POSTs new todo to server with due date |
 | `toggleTodo(id, completed)` | PATCHes completion status |
 | `deleteTodo(id)` | DELETEs todo by ID |
+
+### UI Features
+- Date picker defaults to tomorrow
+- Overdue todos shown in red
+- Completed todos shown with strikethrough
 
 ## Running the App
 
@@ -145,10 +172,11 @@ Server runs at **http://localhost:3001**
 
 ## Limitations
 
-- **No persistence**: Data stored in memory, lost on restart
+- **No persistence**: Data stored in memory, lost on server restart
 - **No authentication**: Anyone can modify todos
 - **No validation**: Basic input handling only
 - **Single instance**: No scaling (in-memory storage)
+- **No due date clearing**: Cannot set due date to null from UI
 
 ## Future Improvements
 
@@ -156,5 +184,5 @@ Server runs at **http://localhost:3001**
 2. Add input validation
 3. Add todo editing (text updates)
 4. Add categories/tags
-5. Add due dates
+5. Allow clearing due date (set to null)
 6. Implement localStorage for offline support
