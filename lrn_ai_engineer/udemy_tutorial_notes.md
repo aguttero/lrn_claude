@@ -35,7 +35,10 @@ https://github.com/upstash/context7 -> library tech documentation
 
 # Example prompts:
 ## Kanban with agents.md
-see `kanban/agents.md`
+see 
+    `kanban/agents.md` 
+    `pm/agents.md`
+    `pm/docs/plan.md`
 
 ## Bug fix prompt:
 Ie. The delete card feature is not working 
@@ -43,6 +46,12 @@ Reproduce the problem, prove you have reproduced it, find the root cause, fix it
 
 
 # Example Excersises
+## PM
+### Prompt
+Review AGENTS.md and /docs/PLAN.md.
+Let me know if you have any questions.
+Do not do any implementation work yet.
+
 ## Vibe - Personal Portfolio Digital Twin AI Chat
 Phase 1
 Portfolio Website
