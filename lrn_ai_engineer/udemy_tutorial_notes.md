@@ -17,7 +17,8 @@ https://github.com/msitarzewski/agency-agents
 * https://artificialanalysis.ai/ -> AI comparison
 
 ## Testing
-* playwright -> web
+* EZE testigin with playwright -> web (EZE?)
+* Unit testing with Vitest and Testing Library
 
 ## MCPS
 Implementation
@@ -51,6 +52,14 @@ Reproduce the problem, prove you have reproduced it, find the root cause, fix it
 Review AGENTS.md and /docs/PLAN.md.
 Let me know if you have any questions.
 Do not do any implementation work yet.
+
+## Questions:
+* Comprehensive tests:
+    - Minimum unit test coverage: 80%
+    - Robust integration testing
+
+* Static site approach
+
 
 ## Vibe - Personal Portfolio Digital Twin AI Chat
 Phase 1
