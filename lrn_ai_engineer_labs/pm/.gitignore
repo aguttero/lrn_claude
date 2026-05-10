@@ -174,3 +174,7 @@ cython_debug/
 
 .DS_Store
 
+# SQLite databases
+*.db
+data/
+
