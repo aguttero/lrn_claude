@@ -55,10 +55,21 @@ Do not do any implementation work yet.
 
 ## Questions:
 * Comprehensive tests:
-    - Minimum unit test coverage: 80%
+    - Minimum unit test coverage: 80% -> ojo con esto, ser más específico si no testea cosas que no son relevantes
     - Robust integration testing
 
-* Static site approach
+## Trust but verify after each phase
+* Prompt: tell me how to test this part myself
+* add a separate terminal window to run tests yourself
+* Prompt: Are all the succes criteria for part 2 achieved?
+* In case is necessary you can update the plan to make adjustments (like adjusting the 80% test coverage)
+
+
+
+
+## Vibe - YOLO Site for a dentist
+Plan, implement, and test a website for a dentist, including online booking for patients. No database for now, just local storage memory. Ask questions
+Minimax M2.7 (minimax.io)
 
 
 ## Vibe - Personal Portfolio Digital Twin AI Chat

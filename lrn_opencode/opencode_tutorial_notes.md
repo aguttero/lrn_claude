@@ -22,6 +22,10 @@ Build a python coding Agent with Gemini
 freeCodeCamp.org
 https://www.youtube.com/watch?v=YtHdaXuOAks
 
+## SETUP
+Agregar el export path que indica Opencode al file ~/.zshrc
+aplica los cambios con source ~/.zshrc para no tener que cerrar y abrir terminal
+
 
 ## Claude Notes
 
@@ -76,23 +80,6 @@ The `--wait` flag matters because some editors fork and return immediately; open
 The cleanest workflow today is: **run opencode → review changes via git diff in VSCode's Source Control panel**. It's not automatic, but it gets you the side-by-side view you want.
 
 ## About the editor configuration:
-Esta configuración vincula el comando /editor de la terminal de OpenCode directamente con VSCode, permitiéndote editar archivos de forma mucho más cómoda que en la terminal básica. [1, 2] 
-Aquí te explico qué hace cada parte:
-
-* export EDITOR=: Le dice a tu sistema operativo (y a OpenCode) que tu editor de texto preferido por defecto es el que viene a continuación.
-* "code ...": Es el comando para llamar a Visual Studio Code desde la terminal.
-* --wait: Esta es la parte crítica. Obliga a la terminal a "esperar" a que cierres la pestaña o el archivo en VSCode antes de retomar el control. Sin esto, OpenCode pensaría que terminaste de editar en cuanto se abra la ventana, sin darte tiempo de escribir nada. [3, 4, 5, 6, 7] 
-
-## Cómo aplicarlo:
-Para que esto sea permanente y no tengas que escribirlo cada vez que abras la terminal, debes añadir esa línea a tu archivo de configuración de shell:
-
-   1. Abre tu archivo de perfil (usualmente ~/.bashrc o ~/.zshrc) en tu terminal.
-   2. Pega la línea export EDITOR="code --wait" al final.
-   3. Reinicia la terminal o ejecuta source ~/.bashrc (o el que corresponda). [8, 9] 
-
-Ahora, cuando estés en la interfaz de OpenCode y uses /editor, se te abrirá una pestaña de VSCode; al guardar y cerrar, OpenCode recibirá tus cambios automáticamente. [10, 11, 12] 
-¿Te gustaría saber cómo verificar qué archivo de configuración (.bashrc o .zshrc) está usando tu terminal actualmente?
-
 Esta configuración vincula el comando /editor de la terminal de OpenCode directamente con VSCode, permitiéndote editar archivos de forma mucho más cómoda que en la terminal básica. [1, 2] 
 Aquí te explico qué hace cada parte:
 
