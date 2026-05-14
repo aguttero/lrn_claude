@@ -9,6 +9,16 @@ https://www.youtube.com/watch?v=k2jmYr1x5Tk
 https://github.com/msitarzewski/agency-agents 
 
 
+# Udemy Ligency Ed Donner learning PAth
+AI Builder - N8N
+AI Egineer
+    MLOps Track
+    Agentic Track *
+    Core Track
+AI Leader
+LLM 
+---
+AI Coder - This course
 
 # Udemy Ligency Ed Donner IA Coder Notes
 

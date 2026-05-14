@@ -10,7 +10,7 @@ async def health():
     return {"status": "ok"}
 
 
-static_dir = Path(__file__).parent.parent / "static"
+static_dir = Path(__file__).parent.parent / "frontend" / "out"
 
 
 @app.get("/{full_path:path}", response_class=HTMLResponse)

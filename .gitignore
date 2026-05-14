@@ -1,11 +1,9 @@
 .venv/
 .DS_Store
-lrn_open_agent_control/
-kanban/
 /Users/alejandroguttero/Documents/Code/AI_Engineer_iclo/
 
-## STANDARD .gitignore copy from lrn_ai_engineer_labs/pm/.gitignore
 
+## STANDARD .gitignore copy from lrn_ai_engineer_labs/pm/.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
