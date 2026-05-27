@@ -42,6 +42,42 @@ https://github.com/upstash/context7 -> library tech documentation
 	- challenge and demand evidence
 	- handle frustration with style
 
+# Context window management
+* Periodically open new session following these steps:
+In the PM MVP is done before starting Part8 (Add new feature: AI Chat to working product (Kanban with DB and APIs and login)
+* PROMPT: confirm that PLAN.md is upd date with all the latest, including any design decisions that you made. Let me know when ready.
+ZAG: also think is Agents.md needs updating.
+* save session
+* validate PLAN.md
+* git commit with updated PLAN.md
+* create new session
+* PROMPT: Read AGENTS.md, then read PLAN.md and let me know any questions before we start Part 8.
+* Record in PLAN.md server start, stop and test the server effectively.
+* Ask to record this kind of tasks before starting a new session
+
+
+# Starting new session with Claude or Open Code:
+## Initial hygiene
+* run /init to check what is inside
+* CREATE YOUR OWN CLAUDE.md or AGENTS.md with YOUR instructions
+### Prompt READ:
+* Read existing AGENTS.md and PLAN.md and docs in /docs Read PLAN:md in the docs folder to understand everythong that has been built so far and any supporting docs.
+### Prompt TEST: 
+* Run all tests to confirm that everything is working. Bring up the server as needed and bring it down at the end.
+
+## Code Review
+### PROMPT CODE REVIEW: 
+* Carry out a comprehensive code review of the entire repo, and write a report with actions organized in priority groups to code_review.md in the docs folder 
+
+* Check the report
+* Prompt to address: Go ahead and address all the Critical, High and Medium priority issues and retest everything. Let me know when everything is remediated and tests ok.
+(in the example AI did not fix the monolithic python module)
+* FUP prompt: I need to remmediate the monolithic python module. Fix that now and retest. Refactor main.py and organize into modules and packages as appropriate. Check and test everything. 
+
+* Update documentation
+
+
+
 
 
 # Example prompts:
@@ -54,6 +90,10 @@ see
 ## Bug fix prompt:
 Ie. The delete card feature is not working 
 Reproduce the problem, prove you have reproduced it, find the root cause, fix it and prove you have fixed it.
+
+ie: the drag and drop seems to only work occasionally. Most of the time, I drag a card, the next column highlihts, but when I release the card goes back to its original position. Test thoroughly, reproduce the problem, fix it and confirm it is fixed.
+
+Sometimes the AI iterates endlessly trying to approve a test it can't see. In this case ctrl-c and manually check to see if it is working.
 
 
 # Example Excersises
@@ -73,6 +113,25 @@ Do not do any implementation work yet.
 * add a separate terminal window to run tests yourself
 * Prompt: Are all the succes criteria for part 2 achieved?
 * In case is necessary you can update the plan to make adjustments (like adjusting the 80% test coverage)
+
+
+### Part 8 - New session
+* AI questions:
+1. for the 2+2 integration test, do you want it fully mocked (no real HTTP) or should it hit the backend endpoint while mocking the OpenRouter client only?
+
+2. Should the new AI endpoint be under /api/ai or /api/chat (or another naming preference)
+
+3. Do you want OpenRouter base URL configurable (eg. via .env) or hardcoded to the standard OpenRouter API URL for now?
+
+Answers:
+1. All the way to OpenRouter, no mocking, check we can get an answer form the model.
+2. /api/chat
+3. hardcoded is good for now
+Note these answers in PLAN.md and proceed with part 8
+
+
+
+
 
 
 
@@ -107,3 +166,6 @@ Phase 4 - review:
 Do a comprehensive code review of this project and write the results to review.md including any remedial actions needed. Don’t change any code. 
 
 Sent to OPUS 4.5 (Different agent that built it)
+
+# Configure Claude Code to use other models
+* See EP 39 - W2 D1: AMP Code...
