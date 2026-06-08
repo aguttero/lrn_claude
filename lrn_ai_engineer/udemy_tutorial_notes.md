@@ -34,7 +34,7 @@ AI Coder - This course
 Implementation
 https://github.com/upstash/context7 -> library tech documentation
 
-# Rules of thumb:
+## Rules of thumb:
     - most intelligent model better vs speed
 	- agents.md: Spec, style, success
 	- work incrementally. Test constantly, validate success criteria
@@ -42,7 +42,7 @@ https://github.com/upstash/context7 -> library tech documentation
 	- challenge and demand evidence
 	- handle frustration with style
 
-# Context window management
+## Context window management
 * Periodically open new session following these steps:
 In the PM MVP is done before starting Part8 (Add new feature: AI Chat to working product (Kanban with DB and APIs and login)
 * PROMPT: confirm that PLAN.md is upd date with all the latest, including any design decisions that you made. Let me know when ready.
@@ -65,7 +65,7 @@ ZAG: also think is Agents.md needs updating.
 ### Prompt TEST: 
 * Run all tests to confirm that everything is working. Bring up the server as needed and bring it down at the end.
 
-## Code Review
+# Code Review
 ### PROMPT CODE REVIEW: 
 * Carry out a comprehensive code review of the entire repo, and write a report with actions organized in priority groups to code_review.md in the docs folder 
 
@@ -76,7 +76,22 @@ ZAG: also think is Agents.md needs updating.
 
 * Update documentation
 
+# RALPH LOOOP
+## Claude Code
+1. install official ralph loop plugin
+2. use /ralph loop command -- max number of iterations
+3. Good Practice: configure permissions in .json to minimize the questios for permissions in the process that can take several hours
+4. .claude/settings.local.json/permissions/allow.json
+### Prompt:
+Over PM Kanban sample project: Please significantly improve this project. Add user management, multiple kanban boards feature for each user, and other features to build a comprehensive Project Management application, testing thuroughly as you go and mantaining strong test code coverage and good integration tests -- max iterations 10
 
+
+
+
+# YOLO MODE
+## command line:
+* claude --dangerously-skip-permissions
+## sandboxing
 
 
 
@@ -142,7 +157,7 @@ Minimax M2.7 (minimax.io)
 
 
 ## Vibe - Personal Portfolio Digital Twin AI Chat
-Phase 1
+### Phase 1
 Portfolio Website
 Build a professional website running locally. 
 Mi LinkedIn profile in LinkedIn.pdf. 
@@ -151,21 +166,25 @@ It should include: about me, my career journey, links to portfolio (for future)
 Iterate to make it as slick and professional as possible and let me know only when completed.
 Use NextJS
 
-Phase 2
+### Phase 2
 Add ability to have an AI chat with a ‘Digital Twin’ which can answer questions about my career. Use Openrouter
 Use model named “open/gpt -oss- 120b” 
 Make the changes, make sure it works
 Let me know when ready for me
 
-Phase 3 - Documentation
+### Phase 3 - Documentation
 Write a comprehensive tutorial in markdown called tutorial.md that is suitable for a complete beginner in front-end coding, to walk me through what you have done here.
 Include a summary of the technology, a high level walk through, and a detailed code review with code samples.
 End with 5 suggestions for ways the code could be improved based on a self-review
 
-Phase 4 - review:
+### Phase 4 - review:
 Do a comprehensive code review of this project and write the results to review.md including any remedial actions needed. Don’t change any code. 
 
 Sent to OPUS 4.5 (Different agent that built it)
+
+### Improve IU - YOLO MODE
+Improve the UI of this project, particularly making sure that the horizontal layout looks better, with icons instead of delete buttons and using the horizontal space properly. Make your changes, test everything, let me know when done
+
 
 # Configure Claude Code to use other models
 * See EP 39 - W2 D1: AMP Code...
