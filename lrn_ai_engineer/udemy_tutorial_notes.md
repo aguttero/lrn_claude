@@ -5,11 +5,11 @@ https://www.youtube.com/watch?v=LHyjYJm8i2Y
 ## MCP Overview
 https://www.youtube.com/watch?v=k2jmYr1x5Tk
 
-# Links to review for Agent specs
+## Links to review for Agent specs
 https://github.com/msitarzewski/agency-agents 
 
-
 # Udemy Ligency Ed Donner learning PAth
+## Modules and Path
 AI Builder - N8N
 AI Egineer
     MLOps Track
@@ -22,7 +22,7 @@ AI Coder - This course
 
 # Udemy Ligency Ed Donner IA Coder Notes
 
-# Tools
+## Tools
 * Openrouter.ai -> single pay, multiple LLMs
 * https://artificialanalysis.ai/ -> AI comparison
 
@@ -41,6 +41,30 @@ https://github.com/upstash/context7 -> library tech documentation
     - if in trouble -> simplify
 	- challenge and demand evidence
 	- handle frustration with style
+
+## Include in initial Agents.md
+see sample: `lrn_ai_engineer_labs/kanban/AGENTS.md`
+### Project name
+### Business requirements
+### Technical details
+### Color Scheme
+
+### Strategy
+
+1. Write plan with success criteria for each phase to be checked off. Include project scaffolding, including .gitignore, and rigorous unit testing.
+2. Execute the plan ensuring all critiera are met
+3. Carry out extensive integration testing with Playwright or similar, fixing defects
+4. Only complete when the MVP is finished and tested, with the server running and ready for the user
+
+### Coding standards
+
+1. Use latest versions of libraries and idiomatic approaches as of today
+2. Keep it simple - NEVER over-engineer, ALWAYS simplify, NO unnecessary defensive programming. No extra features - focus on simplicity.
+3. Be concise. Keep README minimal. IMPORTANT: no emojis ever
+
+
+
+
 
 ## Context window management
 * Periodically open new session following these steps:
